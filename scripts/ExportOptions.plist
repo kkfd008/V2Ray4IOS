@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  ExportOptions.plist 模板
+  根据分发方式修改 <method> 字段：
+    - app-store        App Store 发布
+    - ad-hoc           内部分发（测试设备）
+    - enterprise       企业签名分发
+    - development      开发测试（默认）
+-->
+<plist version="1.0">
+<dict>
+	<key>method</key>
+	<string>development</string>
+	<key>compileBitcode</key>
+	<false/>
+	<key>uploadSymbols</key>
+	<false/>
+	<key>manageAppVersionAndBuildNumber</key>
+	<false/>
+	<key>signingStyle</key>
+	<string>automatic</string>
+	<key>stripSwiftSymbols</key>
+	<true/>
+	<key>teamID</key>
+	<string></string>
+	<key>provisioningProfiles</key>
+	<dict>
+		<key>com.v2ray.client</key>
+		<string>V2RayClient Development</string>
+		<key>com.v2ray.client.packet-tunnel</key>
+		<string>PacketTunnel Development</string>
+	</dict>
+</dict>
+</plist>

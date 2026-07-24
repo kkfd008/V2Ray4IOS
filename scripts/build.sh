@@ -21,11 +21,12 @@ set -euo pipefail
 # ── 配置 ────────────────────────────────────────────────────────────────────
 readonly PROJECT_NAME="V2RayClient"
 readonly PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+readonly SCRIPTS_DIR="${PROJECT_DIR}/scripts"
 readonly BUILD_DIR="${PROJECT_DIR}/.build"
 readonly DERIVED_DATA="${BUILD_DIR}/DerivedData"
 readonly ARCHIVE_DIR="${BUILD_DIR}/Archive"
 readonly IPA_DIR="${BUILD_DIR}/IPA"
-readonly XRAY_WRAPPER_DIR="${BUILD_DIR}/xray-wrapper"
+readonly XRAY_WRAPPER_DIR="${SCRIPTS_DIR}/xray-wrapper"
 readonly XCFRAMEWORK_DIR="${PROJECT_DIR}/V2RayClient/Frameworks"
 
 readonly MAIN_TARGET="V2RayClient"
@@ -188,7 +189,7 @@ build_ios_app() {
     # 导出 IPA
     log_info "开始导出 IPA..."
 
-    local export_plist="${BUILD_DIR}/ExportOptions.plist"
+    local export_plist="${SCRIPTS_DIR}/ExportOptions.plist"
     if [[ ! -f "$export_plist" ]]; then
         generate_export_plist "$export_plist"
     fi
